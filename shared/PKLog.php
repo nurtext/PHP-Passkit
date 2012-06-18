@@ -1,13 +1,6 @@
 <?php
 class PKLog{
-	var $logLocation = 'webservice.log';
-
-	function __construct($logLocation){
-		$this->logLocation = $logLocation;
-	}
-	
 	function fatalError($msg, $httpCode=200){
-		if($this->_logToFile){ @$this->_logToFile($msg, 'fatalError'); }
 		if($httpCode != 200){
 			switch($httpCode){
 				case 400:
@@ -36,12 +29,7 @@ class PKLog{
 		die('<br /><b>FatalError</b>: ' . $msg);
 	}
 	
-	function info($msg){
-		if($this->_logToFile){ @$this->_logToFile($msg, 'Info'); }
-	}
-	
 	function customError($type, $msg, $fatal=false, $httpCode=200){
-		if($this->_logToFile){@$this->_logToFile($msg, ($fatal ? 'fatalCustomError' : 'customError') . ' ' . $type); }
 		if($fatal){
 			if($httpCode != 200){
 				switch($httpCode){
@@ -70,11 +58,6 @@ class PKLog{
 			}
 			die('<br /><b>' . $type . '</b>: ' . $msg);
 		}
-	}
-	
-	private function _logToFile($msg,$type){
-		$error = date('m/d/Y H:i:s') . ' ' . $type . ': ' . $msg . ' (client IP: ' . $_SERVER['REMOTE_ADDR'] . ')' . "\n";
-		file_put_contents($this->logLocation, $error, FILE_APPEND);
 	}
 }
 ?>
