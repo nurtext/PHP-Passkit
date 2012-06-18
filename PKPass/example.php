@@ -3,21 +3,21 @@ require('PKPass.php');
 
 $pass = new PKPass();
 
-$pass->setCertificate('/path/to/Certificate.p12'); // Set the path to your Pass Certificate (.p12 file)
+$pass->setCertificate('../Certificate.p12'); // Set the path to your Pass Certificate (.p12 file)
 $pass->setCertificatePassword('test123'); // Set password for certificate
 
 $pass->setJSON('{ 
-    "passTypeIdentifier": "pass.com.apple.test",
+    "passTypeIdentifier": "pass.nl.mijnbc.test",
     "formatVersion": 1,
-    "organizationName": "Flight Express",
-    "serialNumber": "123456",
-    "teamIdentifier": "AGK5BZEN3E",
+    "organizationName": "Bernardinuscollege",
+    "serialNumber": "1234564",
+    "teamIdentifier": "AGKMBZTN3K",
     "backgroundColor": "rgb(107,156,196)",
     "logoText": "Flight info",
     "boardingPass": {
         "primaryFields": [
             {
-            	"key" : "origin",
+                "key" : "origin",
             	"label" : "San Francisco",
             	"value" : "SFO"
             },
@@ -61,5 +61,5 @@ $pass->addFile('images/icon.png');
 $pass->addFile('images/icon@2x.png');
 $pass->addFile('images/logo.png');
 
-$pass->create(); // Create and output the PKPass
+$pass->create(true); // Create and output the PKPass
 ?>
