@@ -3,7 +3,7 @@ This class provides the functionality to create an Pass for Passbook in Apple's 
 
 ## Requirements
 * PHP 5
-* Access to OpenSSL and Zip via PHP's exec()
+* Access to OpenSSL and Zip via PHP
 * Access to filesystem (script creates a directory `temp/` for temporary files)
 
 ## Usage
