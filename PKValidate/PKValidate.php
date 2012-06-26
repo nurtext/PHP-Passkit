@@ -50,6 +50,7 @@ class PKValidate {
 		
 		// Check required Top-Level Keys
 		if(!isset($json->passTypeIdentifier) || empty($json->passTypeIdentifier)){ $errors[] = $this->_error(3); }
+		if(!isset($json->description) || empty($json->description)){ $errors[] = $this->_error(30); }
 		if(!isset($json->formatVersion) || empty($json->formatVersion)){ $errors[] = $this->_error(4); }
 		if(!isset($json->organizationName) || empty($json->organizationName)){ $errors[] = $this->_error(5); }
 		if(!isset($json->serialNumber) || empty($json->serialNumber)){ $errors[] = $this->_error(6); }
@@ -321,6 +322,11 @@ class PKValidate {
 			29 => array(
 				'error' => 'The field "'.$details.'" in "'.$details2.'" is has an invalid value set for "textAlignment"',
 				'details' => '',
+				'documentation_url' => ''
+			),
+			30 => array(
+				'error' => 'Top-level key "description" is required',
+				'details' => 'Since iOS 6 beta 2 this field is required',
 				'documentation_url' => ''
 			)
 			

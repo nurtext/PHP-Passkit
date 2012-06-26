@@ -19,6 +19,7 @@ $template->setTopLevelKey('passTypeIdentifier', 'pass.com.apple.test');
 $template->setTopLevelKey('teamIdentifier', 'AGKMYZT43K');
 $template->setTopLevelKey('organizationName', 'Apple Inc.');
 $template->setTopLevelKey('serialNumber', 'nmyuxofgnb');
+$template->setTopLevelKey('description', 'Demo pass'); // Required by iOS 6 beta 2 and up!
 
 $template->setTopLevelKey('locations', array(
 	(object)array('longtitude'=>25.0,'latitude'=>25.0),
